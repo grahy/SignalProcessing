@@ -115,6 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="color.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="ioimages.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="signal.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="vec3f.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="color.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="ioimages.h" />
+    <ClInclude Include="signal.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="vec3f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

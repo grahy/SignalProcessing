@@ -14,4 +14,47 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="color.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ioimages.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="signal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3f.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="signal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ioimages.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3f.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
