@@ -104,16 +104,15 @@ color Convolution::reConstruct(const image& img, Filter& f, float w, float h) { 
 	for (int m = w - r - 1; m <= w + r; m++) {
 		for (int n = h - r - 1; n <= h + r; n++) {
 			if ((m < 0) || (m >= img._w) || (n < 0) || (n >= img._h))continue;
-			//if (isInteger(w - m) && isInteger(h - n))continue;
 			s = s + img._mat[n][m] * f.weighted(w - m)*f.weighted(h - n);
 		}
 	}
 	return s;
 }
 
-image* Convolution::reSample(const image& img, int nW,int nH, Filter& reconstructor) {
-	image* nImg = new image(nW, nH);
-	image* transX = new image(nW, img._h);
+std::shared_ptr<image> Convolution::reSample(const image& img, int nW,int nH, Filter& reconstructor) {
+	std::shared_ptr<image> nImg(new image(nW, nH));
+	std::shared_ptr<image> transX(new image(nW, img._h));
 	int x0 = 0, y0 = 0;
 	float deltaX = float(img._w) / float(nW);
 	float deltaY = float(img._h) / float(nH);
@@ -127,7 +126,6 @@ image* Convolution::reSample(const image& img, int nW,int nH, Filter& reconstruc
 			nImg->_mat[h][w] = reConstruct(*transX, reconstructor, w, y0 + deltaY / 2.0f + h * deltaY);
 		}
 	}
-	delete transX;
 	return nImg;
 }
 

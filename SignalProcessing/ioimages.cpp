@@ -1,6 +1,6 @@
 #include"ioimages.h"
-void generate_color_PPM(const char *filename, const int &w, const int &h,const image& img) {
-
+void generate_color_PPM(const char *filename, const image& img) {
+	int w = img._w, h = img._h;
 	std::ofstream outfile;
 	outfile.open(filename, std::ios::out);
 	outfile << "P3\n" << w << " " << h << "\n" << "255\n";

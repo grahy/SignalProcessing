@@ -1,5 +1,6 @@
 #pragma once
 #include"image.h"
+#include<memory>
 
 
 class Filter {
@@ -42,7 +43,7 @@ public:
 namespace Convolution {
 	color Convolved2d(const image& img, Filter& f, int w, int h);
 	color reConstruct(const image& img, Filter& f, float w, float h);
-	image* reSample(const image& img, int nW, int nH, Filter& reconstructor);
+	std::shared_ptr<image> reSample(const image& img, int nW, int nH, Filter& reconstructor);
 	void blur(image& img, Filter& f);
 	void sharp(image& img);
 }

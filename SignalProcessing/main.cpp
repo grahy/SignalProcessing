@@ -10,7 +10,7 @@ void demo_blur(const char* filepath) {
 	image img(texture);
 	Gaussian t(2);
 	Convolution::blur(img, t);
-	generate_color_PPM(filepath, img._w, img._h, img);
+	generate_color_PPM(filepath, img);
 }
 
 void demo_sharp(const char* filepath) {
@@ -19,35 +19,23 @@ void demo_sharp(const char* filepath) {
 	Gaussian t(2);
 	Convolution::blur(img, t);
 	Convolution::sharp(img);
-	generate_color_PPM(filepath, img._w, img._h, img);
+	generate_color_PPM(filepath, img);
 }
 
 void demo_UpSample(const char* filepath) {
 	texture2d texture(readBmp("D:/images/cat.bmp"));
 	image img(texture);
-	image* nImg = NULL;
 	Gaussian f(2);
-	nImg = Convolution::reSample(img, 213, 194, f);
-	if (!nImg) {
-		std::cout << "allocate error" << std::endl;
-		return;
-	}
-	generate_color_PPM(filepath, nImg->_w, nImg->_h, *nImg);
-	delete nImg;
+	std::shared_ptr<image> nImg(Convolution::reSample(img, 213, 194, f));
+	generate_color_PPM(filepath, *nImg);
 }
 
 void demo_DownSample(const char* filepath) {
 	texture2d texture(readBmp("D:/images/cat.bmp"));
 	image img(texture);
-	image* nImg = NULL;
 	Gaussian f(2);
-	nImg = Convolution::reSample(img, 960, 890, f);
-	if (!nImg) {
-		std::cout << "allocate error" << std::endl;
-		return;
-	}
-	generate_color_PPM(filepath, nImg->_w, nImg->_h, *nImg);
-	delete nImg;
+	std::shared_ptr<image> nImg(Convolution::reSample(img, 960, 890, f));
+	generate_color_PPM(filepath, *nImg);
 }
 
 int main() {

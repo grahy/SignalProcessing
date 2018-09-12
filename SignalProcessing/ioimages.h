@@ -5,7 +5,7 @@
 #include"texture.h"
 #include"image.h"
 
-void generate_color_PPM(const char *filename, const int &w, const int &h,const image& img);
+void generate_color_PPM(const char *filename, const image& img);
 
 
 bool getBmpData(const char *filepath, color **texc);
